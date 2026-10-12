@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            Author: Zachary Onellion
+            Date: 10/11/2026
+            Purpose: 1.10 SDC355 Project
+        -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Variables and Dynamic HTML</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body onload="homePage()">
+        <header>
+            <h1>
+                zacone8457 - Project Part 1
+            </h1>
+        </header>
+
+        <!--Navbar-->
+        <div class="navbar">
+            <a href="#home" class="link active" onclick="homePage()">Home</a>
+            <a href="#about" class="link" onclick="aboutPage()">About</a>
+            <a href="#projects" class="link" onclick="projectsPage()">Projects</a>
+            <a href="#contact" class="link" onclick="contactPage()">Contact</a>
+        </div>
+
+        <!--In-Page Loading for navbar css Classes-->
+        <script>
+            const navLinks = document.querySelectorAll('.link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelector('.link.active')?.classList.remove('active'); //Remove Current .active
+                    this.classList.add('active'); //Add New .active
+                });
+            });
+        </script>
+
+        <!--Page Content-->
+        <script>
+            function homePage() {
+                document.getElementById("content").innerHTML = `
+                {Empty}
+                `}
+            function aboutPage() {
+                document.getElementById("content").innerHTML = `
+                I am Zachary Onellion, I am currently pursuing Information Technology.
+                `}
+            function projectsPage() {
+                document.getElementById("content").innerHTML = `
+                <img src="fake.jpg" alt="Placeholder img1">
+                <img src="fake.jpg" alt="Placeholder img2">
+                <img src="fake.jpg" alt="Placeholder img3">
+                `}
+            function contactPage() {
+                document.getElementById("content").innerHTML = `
+                <form>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="email"><br>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name"><br>
+                    <label for="address">Address:</label><br>
+                    <input type="text" id="address"><br>
+                    <label for="subject">Subject:</label><br>
+                    <input type="text" id="subject"><br>
+                    <label for="message">Message:</label><br>
+                    <input type="text" id="message"><br>
+                    <input type="submit">
+                </form>
+                `}
+        </script>
+
+        <!--Skeleton Container for functions-->
+        <article>
+            <div id="content"> <!--Content Container (Current text is for debugging)-->
+                Placeholder Text
+            </div>
+        </article>
+    </body>
+</html>
